@@ -1,0 +1,36 @@
+copy:
+  - dest: localhost
+    src: /var/folder1/test.txt/
+
+  - dest: localhost
+    src: /var/folder2/test2.txt/
+
+  - dest: localhost
+    src: /var/folder3/test3.txt/
+
+  - dest: APP_DBO_19.7
+    src: /var/log/jetty9/logs/archive/
+
+  - dest: APP_DBO_19.7
+    src: /var/log/isconnect/
+
+  - dest: WEB_DBO_19.3
+    src: /var/log/jetty9/logs/archive/
+
+  - dest: JMS_DBO_19.8
+    src: /opt/apps/apache-artemis-2.11.0/bin/broker/log/
+
+  - dest: CSV_DBO_19.2
+    src: /var/log/spammer/
+
+  - directory: /var/log/jetty9/logs/
+
+  - directory: /var/log/isconnect/
+
+  - directory: /var/log/spammer/
+
+  - directory: /var/log/email2jms/
+
+  - directory: /var/log/messages/
+
+  - directory: /var/log/jetty9/  

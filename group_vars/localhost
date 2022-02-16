@@ -1,0 +1,4 @@
+dir: localhost
+log: folder1/test.txt/
+log: folder2/test2.txt/
+log: folder3/test3.txt/

@@ -1,0 +1,42 @@
+- hosts: localhost
+  become: yes
+  gather_facts: yes
+  vars_files:
+    - loop.yml
+  vars:
+    time: "{{ lookup('pipe', 'date -d \"1 day ago\" +\"%Y-%m-%d\"') }}" 
+
+  tasks:
+  - name: Mount to fstab
+    mount:
+      src: 10.103.70.134:/nas/LOGs/
+      path: /LOGs/
+      opts: auto,nofail,noatime,nolock,intr,tcp,actimeo=1800
+      state: mounted
+      fstype: nfs
+
+      
+  - name: Create logs dir.
+    file:
+      path: '/LOGs/{{ dir }}'
+      state: directory
+
+  - name: Copy log files to /LOGs/{{ dir }}
+    copy:
+      src: "{{ item.src }}"
+      dest: '/LOGs/{{ dir }}'
+
+    loop: "{{ copy }}"
+      
+
+
+
+
+
+
+
+
+
+
+
+
